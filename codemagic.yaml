@@ -1,6 +1,4 @@
-# Copy to AppRoot/codemagic.yaml and fill XCODE_* / BUNDLE_ID.
-# Policy: build + sign IPA only. No ASC publishing of metadata/screenshots/submit.
-# Human uploads IPA (Transporter) and fills listing / keys in ASC by hand.
+# Build + sign IPA only. Listing, screenshots, and submit stay manual.
 
 workflows:
   app-store-release:
@@ -16,7 +14,6 @@ workflows:
         XCODE_PROJECT: JackPartyPiraten.xcodeproj
         XCODE_SCHEME: JackPartyPiraten
         BUNDLE_ID: com.nikolinay.jackpartypiraten
-        # Must match project.yml after any rename (rename-brand.py should rewrite these).
 
     triggering:
       events:
