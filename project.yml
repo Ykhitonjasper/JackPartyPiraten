@@ -1,0 +1,79 @@
+name: JackPartyPiraten
+options:
+  bundleIdPrefix: com.nikolinay
+  deploymentTarget:
+    iOS: "17.0"
+  createIntermediateGroups: true
+  developmentLanguage: en
+settings:
+  base:
+    SWIFT_VERSION: "5.9"
+    TARGETED_DEVICE_FAMILY: "1"
+    IPHONEOS_DEPLOYMENT_TARGET: "17.0"
+    GENERATE_INFOPLIST_FILE: YES
+    INFOPLIST_FILE: JackPartyPiraten/Info.plist
+    MARKETING_VERSION: "1.0.0"
+    CURRENT_PROJECT_VERSION: "1"
+    PRODUCT_BUNDLE_IDENTIFIER: com.nikolinay.jackpartypiraten
+    PRODUCT_NAME: JackPartyPiraten
+    DEVELOPMENT_TEAM: "BZ5369F7Y4"
+    CODE_SIGN_STYLE: Automatic
+    SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: NO
+    SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+    SUPPORTS_MACCATALYST: NO
+targets:
+  JackPartyPiraten:
+    type: application
+    platform: iOS
+    sources:
+      - path: JackPartyPiraten
+        excludes:
+          - Info.plist
+          - PrivacyInfo.xcprivacy
+    resources:
+      - path: JackPartyPiraten/Assets.xcassets
+      - path: JackPartyPiraten/PrivacyInfo.xcprivacy
+    settings:
+      base:
+        TARGETED_DEVICE_FAMILY: "1"
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        INFOPLIST_KEY_CFBundleDisplayName: JackParty Piraten
+        PRODUCT_BUNDLE_IDENTIFIER: com.nikolinay.jackpartypiraten
+        PRODUCT_DISPLAY_NAME: JackParty Piraten
+        CODE_SIGN_ENTITLEMENTS: Config/JackPartyPiraten.entitlements
+        DEVELOPMENT_TEAM: "BZ5369F7Y4"
+        SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD: NO
+        SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD: NO
+        SUPPORTS_MACCATALYST: NO
+        INFOPLIST_KEY_UIApplicationSceneManifest_Generation: YES
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationPortrait
+        INFOPLIST_KEY_UIRequiresFullScreen: YES
+  JackPartyPiratenUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources:
+      - path: JackPartyPiratenUITests
+    dependencies:
+      - target: JackPartyPiraten
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: ""
+        PRODUCT_BUNDLE_IDENTIFIER: com.nikolinay.jackpartypiraten.uitests
+        PRODUCT_NAME: JackPartyPiratenUITests
+        PRODUCT_MODULE_NAME: JackPartyPiratenUITests
+        DEVELOPMENT_TEAM: "BZ5369F7Y4"
+        TEST_TARGET_NAME: JackPartyPiraten
+        CODE_SIGN_ENTITLEMENTS: ""
+
+schemes:
+  JackPartyPiraten:
+    build:
+      targets:
+        JackPartyPiraten: all
+        JackPartyPiratenUITests: [test]
+    test:
+      targets:
+        - JackPartyPiratenUITests

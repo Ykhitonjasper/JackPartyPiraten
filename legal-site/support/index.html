@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Support and feedback for JackParty Piraten.">
+    <title>Support — JackParty Piraten</title>
+    <link rel="stylesheet" href="/styles.css">
+  </head>
+  <body>
+    <main>
+      <nav aria-label="Legal navigation">
+        <a href="/">Home</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/terms/">Terms</a>
+      </nav>
+
+      <p class="eyebrow">JackParty Piraten</p>
+      <h1>Support & Feedback</h1>
+      <p>
+        Complete the form to prepare an email in your mail app. Avoid including
+        private reveal text or local codes.
+      </p>
+
+      <form class="card" id="support-form">
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" required>
+
+        <label for="reply">Your email</label>
+        <input id="reply" name="reply" type="email" autocomplete="email" required>
+
+        <label for="topic">Topic</label>
+        <select id="topic" name="topic">
+          <option>App question</option>
+          <option>Problem report</option>
+          <option>Privacy question</option>
+          <option>Feedback</option>
+        </select>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="submit">Prepare email</button>
+      </form>
+
+      <p>
+        You can also email
+        <a href="mailto:Nikolinayturki@icloud.com">Nikolinayturki@icloud.com</a>
+        directly.
+      </p>
+
+      <footer>© 2026 JackParty Piraten</footer>
+    </main>
+
+    <script>
+      document.getElementById("support-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        const topic = data.get("topic");
+        const subject = encodeURIComponent(`JackParty Piraten — ${topic}`);
+        const body = encodeURIComponent(
+          `Name: ${data.get("name")}\nReply email: ${data.get("reply")}\n\n${data.get("message")}`
+        );
+        window.location.href =
+          `mailto:Nikolinayturki@icloud.com?subject=${subject}&body=${body}`;
+      });
+    </script>
+  </body>
+</html>
