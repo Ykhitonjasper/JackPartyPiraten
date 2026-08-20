@@ -1,8 +1,8 @@
-# Build + sign IPA only. Listing, screenshots, and submit stay manual.
+# Build + sign IPA, upload to App Store Connect. Listing and review submit stay manual.
 
 workflows:
   app-store-release:
-    name: App Store Build (IPA only)
+    name: App Store Build (upload to ASC)
     max_build_duration: 120
     instance_type: mac_mini_m2
 
@@ -82,5 +82,11 @@ workflows:
       - build/ios/ipa/*.ipa
       - /tmp/xcodebuild_logs/*.log
 
-    # Do NOT add publishing.app_store_connect here.
-    # No submit_to_app_store / no auto screenshots / no version copy push.
+    publishing:
+      app_store_connect:
+        api_key: $APP_STORE_CONNECT_PRIVATE_KEY
+        key_id: $APP_STORE_CONNECT_KEY_IDENTIFIER
+        issuer_id: $APP_STORE_CONNECT_ISSUER_ID
+        submit_to_testflight: false
+        submit_to_app_store: false
+        # IPA goes to ASC; pick the build on the version yourself. No review submit, no listing copy.
